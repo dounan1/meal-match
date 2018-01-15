@@ -1,0 +1,38 @@
+<!--pages/new/new.wxml-->
+<view class="header">
+ <view class="h2-header">Submit your Restaurant</view>
+</view>
+<view class="container">
+ <view class="wrap">
+ 
+  <form bindsubmit="bindSubmit">
+
+   <view class="user-input">
+    <view class="text-area-wrap">
+     <textarea style="input-size"placeholder="Name" class="input-height" name="name" maxlength="-1" auto-height />
+    </view>
+   </view>
+
+   <view class="user-input">
+    <view class="text-area-wrap">
+     <textarea style="input-size"placeholder="Description" class="input-height" name="tag" maxlength="-1" auto-height />
+    </view>
+   </view>
+
+   <view class="user-input">
+    <view class="text-area-wrap">
+     <textarea style="input-size"placeholder="Address" class="input-height" name="address" maxlength="-1" auto-height />
+    </view>
+   </view>
+
+   <view class="user-input">
+    <view class="text-area-wrap">
+     <textarea style="input-size"placeholder="Image" class="input-height" name="image" maxlength="-1" auto-height />
+    </view>
+   </view>
+
+   <button  style="margin-bottom:50px "type="primary" form-type="submit" loading="{{loading}}">Submit</button>
+  </form>
+
+ </view>
+</view>

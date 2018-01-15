@@ -1,0 +1,31 @@
+<!--index.wxml-->
+<view class="header">
+  <view class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://kitt.lewagon.com/placeholder/cities/berlin');">
+    <view class="banner-content">
+      <view class="h1">Meal Match</view>
+      <view class="tag">Your next meal is waiting</view>
+    </view>
+  </view>
+</view>
+
+<view class="container">
+  <view wx:for="{{restaurants}}" wx:for-item="restaurant" wx:key="restaurant.id" bindtap="showRestaurant" class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('{{restaurant.image}}');" data-restaurant="{{restaurant}}">
+
+    <view class="card-category">
+      {{restaurant.address}}
+    </view>
+
+    <view class="card-description">
+
+      <view class="name">
+        {{restaurant.name}}
+      </view>
+
+      <view class="tag">
+        {{restaurant.tag}}
+      </view>
+
+    </view>
+  </view>
+</view>
+

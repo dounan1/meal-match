@@ -1,0 +1,40 @@
+/* pages/edit/edit.wxss */
+.h2-header {
+ color: black;
+  font-size: 50rpx; 
+  font-weight: bold;
+  padding: 10px;
+}
+/* Avatar */
+.userinfo-avatar {
+  width:180rpx;
+  height:180rpx;
+  margin:20rpx;
+  border-radius:50%;
+}
+
+/* form style */
+.user-input {
+  width: 100%;
+  margin-bottom: 35rpx;
+}
+.input-height {
+  height: 10em;
+}
+.input-label {
+  font-size: 35rpx;
+}
+textarea {
+  padding: 10rpx 0;
+  font-size: 35rpx;
+  width: 100%;
+}
+.text-area-wrap {
+  padding: 15rpx 15rpx;
+  background-color: #fff;
+  margin-top:8px;
+  border-radius: 2px;
+  border-left: 5px solid #9F9F9C;
+}
+
+
