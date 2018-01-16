@@ -57,7 +57,7 @@ Page({
   editRestaurant(e) {
     const data = e.currentTarget.dataset;
 
-    wx.navigateTo({
+    wx.redirectTo({
       url: `/pages/edit/edit?id=${data.id}&name=${data.name}&image=${data.image}&tag=${data.tag}&address=${data.address}`
     });
   },
@@ -65,7 +65,7 @@ Page({
   deleteRestaurant(e) {
     const data = e.currentTarget.dataset;
 
-    wx.reLaunch({
+    wx.redirectTo({
       url: `/pages/index/index?id=${data.id}`
     });
   },

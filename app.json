@@ -1,5 +1,6 @@
 {
   "pages":[
+    "pages/main/main",
     "pages/index/index",
     "pages/show/show",
     "pages/new/new",
@@ -18,10 +19,10 @@
     "color": "black",
     "list": [
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/main/main",
         "iconPath": "image/random.png",
         "selectedIconPath": "image/selected-random.png",
-        "text": "Pick One"
+        "text": "Main"
       },
       {
         "pagePath": "pages/new/new",

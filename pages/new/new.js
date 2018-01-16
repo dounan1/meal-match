@@ -28,7 +28,7 @@ Page({
     var address = e.detail.value.address;
 
     // set data on index page and show
-    wx.reLaunch({
+    wx.navigateTo({
       url: `/pages/index/index?name=${name}&image=${image}&tag=${tag}&address=${address}`
     });
 

@@ -40,7 +40,7 @@ Page({
     let id = this.data.id;
 
     // set data on index page and show
-    wx.reLaunch({
+    wx.redirectTo({
       url: `/pages/index/index?id=${id}&name=${name}&image=${image}&tag=${tag}&address=${address}`
     });
 
