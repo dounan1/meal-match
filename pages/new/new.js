@@ -24,12 +24,12 @@ Page({
 
     var name = e.detail.value.name;
     var image = e.detail.value.image;
-    var tag = e.detail.value.tag;
+    var description = e.detail.value.description;
     var address = e.detail.value.address;
 
     // set data on index page and show
     wx.navigateTo({
-      url: `/pages/index/index?name=${name}&image=${image}&tag=${tag}&address=${address}`
+      url: `/pages/index/index?name=${name}&image=${image}&description=${description}&address=${address}`
     });
 
   }

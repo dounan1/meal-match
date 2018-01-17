@@ -39,7 +39,7 @@ Page({
       "id": options.id,
       "name": options.name,
       "address": options.address,
-      "tag": options.tag,
+      "description": options.description,
       "image": options.image
     };
     
@@ -58,7 +58,7 @@ Page({
     const data = e.currentTarget.dataset;
 
     wx.redirectTo({
-      url: `/pages/edit/edit?id=${data.id}&name=${data.name}&image=${data.image}&tag=${data.tag}&address=${data.address}`
+      url: `/pages/edit/edit?id=${data.id}&name=${data.name}&image=${data.image}&description=${data.description}&address=${data.address}`
     });
   },
 

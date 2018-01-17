@@ -12,7 +12,7 @@ Page({
       "id": options.id,
       "name": options.name,
       "address": options.address,
-      "tag": options.tag,
+      "description": options.description,
       "image": options.image
     };
 
@@ -35,13 +35,13 @@ Page({
 
     let name = e.detail.value.name;
     let image = e.detail.value.image;
-    let tag = e.detail.value.tag;
+    let description = e.detail.value.description;
     let address = e.detail.value.address;
     let id = this.data.id;
 
     // set data on index page and show
     wx.redirectTo({
-      url: `/pages/index/index?id=${id}&name=${name}&image=${image}&tag=${tag}&address=${address}`
+      url: `/pages/index/index?id=${id}&name=${name}&image=${image}&description=${description}&address=${address}`
     });
 
   }

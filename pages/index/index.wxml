@@ -13,7 +13,7 @@
     </view>
 
     <view class="tag">
-      {{restaurant.tag}}
+      {{restaurant.description}}
     </view>
 
   </view>

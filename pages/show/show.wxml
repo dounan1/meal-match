@@ -5,12 +5,12 @@
     <view class="banner-content">
 
       <view class="h1">{{name}}</view>
-      <view class="tag">{{tag}}</view>
+      <view class="tag">{{description}}</view>
       <view>{{address}}</view>
 
       <view class="controls">
         <image src="/image/edit.png" class="icon" bindtap="editRestaurant" 
-          data-id="{{id}}" data-name="{{name}}" data-tag="{{tag}}" 
+          data-id="{{id}}" data-name="{{name}}" data-description="{{description}}" 
           data-address="{{address}}" data-image="{{image}}" />
 
         <image src="/image/recycling-bin.png" class="icon" 

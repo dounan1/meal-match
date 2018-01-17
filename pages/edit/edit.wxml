@@ -1,3 +1,3 @@
 <!--pages/edit/edit.wxml-->
 <import src="/shared/form.wxml"/>
-<template is="form" data="{{name: name, tag: tag, address: address, image: image}}"/>
+<template is="form" data="{{name: name, description: description, address: address, image: image}}"/>

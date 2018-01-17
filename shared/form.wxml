@@ -16,7 +16,7 @@
 
     <view class="user-input">
       <view class="text-area-wrap">
-      <textarea value="{{tag}}" style="input-size"placeholder="Description" class="input-height" name="tag" maxlength="-1" auto-height />
+      <textarea value="{{description}}" style="input-size"placeholder="Description" class="input-height" name="description" maxlength="-1" auto-height />
       </view>
     </view>
 
