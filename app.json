@@ -22,7 +22,7 @@
         "pagePath": "pages/main/main",
         "iconPath": "image/random.png",
         "selectedIconPath": "image/selected-random.png",
-        "text": "Main"
+        "text": "Choose Your Meal"
       },
       {
         "pagePath": "pages/new/new",

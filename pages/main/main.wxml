@@ -3,6 +3,6 @@
   <view class="banner-content">
     <view class="h1">Meal Match</view>
     <view class="tag">Your next meal is waiting</view>
-    <navigator url="../index/index" hover-class="navigator-hover">Let's Eat</navigator>
+    <button bindtap="indexRestaurants">Let's Eat</button>
   </view>
 </view>

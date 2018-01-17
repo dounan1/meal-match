@@ -34,31 +34,38 @@ Page({
     ]
   },
   onLoad: function (options) {
-    // Display toast if form success
-    if (options.name || options.id) {
-      wx.showToast({
-        title: 'Updated!',
-        icon: 'success',
-        duration: 3000
-      });
+    const that = this;
 
-      var restaurants = this.data.restaurants
+    // Display toast when loading
+    wx.showToast({
+      title: 'Updating',
+      icon: 'success',
+      duration: 3000
+    });
 
-      if (options.id !== undefined) {
-        
-        let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
+    var restaurants = this.data.restaurants
 
-        if (options.name !== undefined) { 
-          restaurants[index].name = options.name;
-          restaurants[index].tag = options.tag;
-          restaurants[index].address = options.address;
-          restaurants[index].image = options.image;
-        } else {
-          restaurants.splice(index, 1);
-        };
+    if (options.id !== undefined) {
+      
+      // Get data array index of restaurant with matching id
+      let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
 
+      if (options.name !== undefined) { 
+        // Edit restaurant
+        restaurants[index].name = options.name;
+        restaurants[index].tag = options.tag;
+        restaurants[index].address = options.address;
+        restaurants[index].image = options.image;
       } else {
+        // Delete restaurant 
+        restaurants.splice(index, 1);
+      };
 
+    } else {
+
+      if (options.name !== undefined) { 
+
+        // Create new restaurant
         var restaurant =  {
             "id": restaurants.length + 1,
             "name": options.name,
@@ -68,23 +75,23 @@ Page({
           };
     
         restaurants.push(restaurant);
-      };   
+      }
+    };   
 
-      // Update local data
-      this.setData({
-        restaurants: restaurants
-      });   
-    } 
+    // Update local data
+    this.setData({
+      restaurants: restaurants
+    });   
 
   },
 
   showRestaurant(e) {
     const data = e.currentTarget.dataset;
-    const restaurant = data.restaurant
+    const restaurant = data.restaurant;
 
     wx.redirectTo({
       url: `../show/show?id=${restaurant.id}&name=${restaurant.name}&image=${restaurant.image}&tag=${restaurant.tag}&address=${restaurant.address}`
     });
-  },
+  }
 
 })
