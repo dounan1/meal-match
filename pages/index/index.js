@@ -10,7 +10,7 @@ Page({
 
     // Display toast when loading
     wx.showToast({
-      title: 'Updating',
+      title: 'Loading',
       icon: 'success',
       duration: 3000
     });

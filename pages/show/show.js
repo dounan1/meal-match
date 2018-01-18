@@ -64,6 +64,7 @@ Page({
     });
   },
 
+  // binded to edit button
   editRestaurant(e) {
     const data = e.currentTarget.dataset;
 
@@ -72,16 +73,20 @@ Page({
     });
   },
 
+  // binded to delete button
   deleteRestaurant(e) {
     const data = e.currentTarget.dataset;
 
-    var restaurants = app.globalData.restaurants
-    let index = restaurants.findIndex(restaurant => restaurant.id === data.id);
-
-    restaurants.splice(index, 1);
-
-    wx.redirectTo({
-      url: '/pages/index/index'
+    // Get api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/restaurants/${data.id}`,
+      method: 'DELETE',
+      success(res) {
+        // set data on index page and show
+        wx.redirectTo({
+          url: '/pages/index/index'
+        });
+      }
     });
   },
  

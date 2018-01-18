@@ -8,15 +8,27 @@ Page({
 
   // Retrieve user info
   onLoad: function (options) {
-    var restaurants = app.globalData.restaurants
-    let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
+    let that = this;
 
-    // Update local data
-    this.setData(restaurants[index]);
+    // Get api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/restaurants/${options.id}`,
+      method: 'GET',
+      success(res) {
+        const restaurant = res.data;
+
+        // Update local data
+        that.setData(
+          restaurant
+        );
+
+        wx.hideToast();
+      }
+    });
   },
 
 
-  // New Restaurant Submission
+  // Edit Restaurant 
   bindSubmit: function (e) {
     this.setData({
       loading: !this.data.loading
@@ -34,20 +46,26 @@ Page({
     let address = e.detail.value.address;
     let id = this.data.id;
 
-    var restaurants = app.globalData.restaurants
-    let index = restaurants.findIndex(restaurant => restaurant.id === id);
+    let restaurant = {
+      name: name,
+      image: image,
+      description: description,
+      address: address
+    }
 
-    // Edit restaurant
-    restaurants[index].name = name;
-    restaurants[index].description = description;
-    restaurants[index].address = address;
-    restaurants[index].image = image;
-
-    // set data on index page and show
-    wx.redirectTo({
-      url: '/pages/index/index'
+    // Get api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/restaurants/${id}`,
+      method: 'PUT',
+      data: restaurant,
+      success(res) {
+        // set data on index page and show
+        wx.redirectTo({
+          url: '/pages/index/index'
+        });
+      }
     });
-
+ 
   }
 })
 

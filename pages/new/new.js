@@ -27,23 +27,26 @@ Page({
     var description = e.detail.value.description;
     var address = e.detail.value.address;
 
-    var restaurants = app.globalData.restaurants
+    let restaurant = {
+      name: name,
+      image: image,
+      description: description,
+      address: address
+    }
 
-    // Create new restaurant
-    var restaurant = {
-      "id": restaurants.length + 1,
-      "name": name,
-      "address": address,
-      "description": description,
-      "image": image
-    };
-
-    restaurants.push(restaurant);
-
-    // set data on index page and show
-    wx.navigateTo({
-      url: '/pages/index/index'
+    // Get api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/restaurants`,
+      method: 'POST',
+      data: restaurant,
+      success(res) {
+        // set data on index page and show
+        wx.redirectTo({
+          url: '/pages/index/index'
+        });
+      }
     });
+
 
   }
 })
