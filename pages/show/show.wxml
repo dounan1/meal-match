@@ -10,8 +10,7 @@
 
       <view class="controls">
         <image src="/image/edit.png" class="icon" bindtap="editRestaurant" 
-          data-id="{{id}}" data-name="{{name}}" data-description="{{description}}" 
-          data-address="{{address}}" data-image="{{image}}" />
+          data-id="{{id}}" />
 
         <image src="/image/recycling-bin.png" class="icon" 
           bindtap="deleteRestaurant" data-id="{{id}}" />

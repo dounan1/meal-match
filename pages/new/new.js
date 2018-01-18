@@ -27,9 +27,22 @@ Page({
     var description = e.detail.value.description;
     var address = e.detail.value.address;
 
+    var restaurants = app.globalData.restaurants
+
+    // Create new restaurant
+    var restaurant = {
+      "id": restaurants.length + 1,
+      "name": name,
+      "address": address,
+      "description": description,
+      "image": image
+    };
+
+    restaurants.push(restaurant);
+
     // set data on index page and show
     wx.navigateTo({
-      url: `/pages/index/index?name=${name}&image=${image}&description=${description}&address=${address}`
+      url: '/pages/index/index'
     });
 
   }

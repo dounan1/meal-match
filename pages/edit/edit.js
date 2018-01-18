@@ -1,6 +1,6 @@
 // pages/edit/edit.js
-
 var app = getApp()
+
 Page({
   data: {
     loading: false,
@@ -8,16 +8,11 @@ Page({
 
   // Retrieve user info
   onLoad: function (options) {
-    let restaurant = {
-      "id": options.id,
-      "name": options.name,
-      "address": options.address,
-      "description": options.description,
-      "image": options.image
-    };
+    var restaurants = app.globalData.restaurants
+    let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
 
     // Update local data
-    this.setData(restaurant);
+    this.setData(restaurants[index]);
   },
 
 
@@ -39,9 +34,18 @@ Page({
     let address = e.detail.value.address;
     let id = this.data.id;
 
+    var restaurants = app.globalData.restaurants
+    let index = restaurants.findIndex(restaurant => restaurant.id === id);
+
+    // Edit restaurant
+    restaurants[index].name = name;
+    restaurants[index].description = description;
+    restaurants[index].address = address;
+    restaurants[index].image = image;
+
     // set data on index page and show
     wx.redirectTo({
-      url: `/pages/index/index?id=${id}&name=${name}&image=${image}&description=${description}&address=${address}`
+      url: '/pages/index/index'
     });
 
   }

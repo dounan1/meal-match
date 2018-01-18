@@ -1,4 +1,6 @@
 // pages/show/show.js
+var app = getApp()
+
 Page({
 
   /**
@@ -35,16 +37,11 @@ Page({
    */
   onLoad: function (options) {
 
-    let restaurant = {
-      "id": options.id,
-      "name": options.name,
-      "address": options.address,
-      "description": options.description,
-      "image": options.image
-    };
+    var restaurants = app.globalData.restaurants
+    let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
     
     // Update local data
-    this.setData(restaurant);   
+    this.setData(restaurants[index]);   
   },
 
   onReady() {
@@ -58,15 +55,20 @@ Page({
     const data = e.currentTarget.dataset;
 
     wx.redirectTo({
-      url: `/pages/edit/edit?id=${data.id}&name=${data.name}&image=${data.image}&description=${data.description}&address=${data.address}`
+      url: `/pages/edit/edit?id=${data.id}`
     });
   },
 
   deleteRestaurant(e) {
     const data = e.currentTarget.dataset;
 
+    var restaurants = app.globalData.restaurants
+    let index = restaurants.findIndex(restaurant => restaurant.id === data.id);
+
+    restaurants.splice(index, 1);
+
     wx.redirectTo({
-      url: `/pages/index/index?id=${data.id}`
+      url: '/pages/index/index'
     });
   },
  
