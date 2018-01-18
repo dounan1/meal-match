@@ -7,29 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "reviews": [
-      {
-        "id": 1,
-        "name": 'Gab',
-        "image": 'https://kitt.lewagon.com/placeholder/users/gabriel-dehan',
-        "date": '01/13/17',
-        "content": 'Best food ever!'
-      },
-      {
-        "id": 2,
-        "name": 'Gray',
-        "image": 'https://kitt.lewagon.com/placeholder/users/graysdays',
-        "date": '01/10/17',
-        "content": 'Love the service'
-      },
-      {
-        "id": 3,
-        "name": 'Alex', 
-        "image": 'https://kitt.lewagon.com/placeholder/users/alex-felix',
-        "date": '01/09/17',
-        "content": 'Had a great time :)'
-      }
-    ]
+    
   },
 
   /**
@@ -44,12 +22,17 @@ Page({
       url: `http://localhost:3000/api/v1/restaurants/${options.id}`,
       method: 'GET',
       success(res) {
-        const restaurant = res.data;
+        let restaurant = res.data;
+        let comments = restaurant.comments;
 
         // Update local data
         that.setData(
           restaurant
         );
+
+        that.setData({ 
+          reviews: comments 
+        });
 
         wx.hideToast();
       }
