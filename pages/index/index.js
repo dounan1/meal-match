@@ -23,7 +23,7 @@ Page({
     const data = e.currentTarget.dataset;
     const restaurant = data.restaurant;
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: `../show/show?id=${restaurant.id}`
     });
   }

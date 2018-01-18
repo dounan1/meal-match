@@ -54,7 +54,7 @@ Page({
   editRestaurant(e) {
     const data = e.currentTarget.dataset;
 
-    wx.redirectTo({
+    wx.navigateTo({
       url: `/pages/edit/edit?id=${data.id}`
     });
   },
