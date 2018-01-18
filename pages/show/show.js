@@ -37,11 +37,24 @@ Page({
    */
   onLoad: function (options) {
 
-    var restaurants = app.globalData.restaurants
-    let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
+    let that = this;
+
+    // Get api data
+    wx.request({
+      url: `http://localhost:3000/api/v1/restaurants/${options.id}`,
+      method: 'GET',
+      success(res) {
+        const restaurant = res.data;
+
+        // Update local data
+        that.setData(
+          restaurant
+        );
+
+        wx.hideToast();
+      }
+    });
     
-    // Update local data
-    this.setData(restaurants[index]);   
   },
 
   onReady() {

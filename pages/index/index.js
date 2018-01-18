@@ -6,7 +6,7 @@ Page({
     
   },
   onLoad: function (options) {
-    const that = this;
+    let that = this;
 
     // Display toast when loading
     wx.showToast({
@@ -15,8 +15,22 @@ Page({
       duration: 3000
     });
 
-    // Update local data
-    this.setData(app.globalData)
+    // Get api data
+    wx.request({
+      url: "http://localhost:3000/api/v1/restaurants",
+      method: 'GET',
+      success(res) {
+        const restaurants = res.data;
+
+        // Update local data
+        that.setData({
+          restaurants: restaurants,
+        });
+
+        wx.hideToast();
+      }
+    });
+
   },
 
   showRestaurant(e) {
