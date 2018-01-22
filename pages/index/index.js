@@ -6,8 +6,7 @@ Page({
     
   },
   onLoad: function (options) {
-    const that = this;
-
+  
     // Display toast when loading
     wx.showToast({
       title: 'Updating',

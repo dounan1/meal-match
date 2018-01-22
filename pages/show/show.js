@@ -45,9 +45,8 @@ Page({
   },
 
   onReady() {
-    const that = this;
     wx.setNavigationBarTitle({
-      title: that.data.name,
+      title: this.data.name,
     });
   },
 
