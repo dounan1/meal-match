@@ -9,26 +9,26 @@
       <view>{{address}}</view>
 
       <view class="controls">
-        <image src="/image/edit.png" class="icon" bindtap="editRestaurant" 
+        <image src="/image/edit.png" class="icon" bindtap="editRestaurant"
           data-id="{{id}}" />
 
-        <image src="/image/recycling-bin.png" class="icon" 
+        <image src="/image/recycling-bin.png" class="icon"
           bindtap="deleteRestaurant" data-id="{{id}}" />
       </view>
-     
+
     </view>
   </view>
 </view>
 
 <view class="container">
-  <view class="message" wx:for="{{reviews}}" wx:for-item="review" wx:key="review.id">
-    <image class="avatar-large" src="{{review.image}}"/>
+  <view class="message" wx:for="{{comments}}" wx:for-item="comment" wx:key="comment.id">
+    <image class="avatar-large" src="{{comment.image}}"/>
     <view class="message-name">
-      <view class="h3">{{review.name}}</view>
-        <view class="date">{{review.date}}</view>
+      <view class="h3">{{comment.name}}</view>
+        <view class="date">{{comment.date}}</view>
     </view>
     <view class="message-body">
-      <view class="text"><strong>{{review.content}}</strong></view>
+      <view class="text"><strong>{{comment.content}}</strong></view>
     </view>
   </view>
 </view>

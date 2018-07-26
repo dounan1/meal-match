@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
 	"appid": "touristappid",
-	"projectname": "mealmatch",
+	"projectname": "mealmatch%20final",
 	"condition": {
 		"search": {
 			"current": -1,

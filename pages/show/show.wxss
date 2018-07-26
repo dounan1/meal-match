@@ -36,7 +36,7 @@
   height: 30px;
 }
 
-/* Reviews */
+/* comments */
 .message {
   display: flex;
   align-items: center;

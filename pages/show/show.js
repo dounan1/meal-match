@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    "reviews": [
+    "comments": [
       {
         "id": 1,
         "name": 'Gab',
@@ -24,7 +24,7 @@ Page({
       },
       {
         "id": 3,
-        "name": 'Alex', 
+        "name": 'Alex',
         "image": 'https://kitt.lewagon.com/placeholder/users/alex-felix',
         "date": '01/09/17',
         "content": 'Had a great time :)'
@@ -39,9 +39,9 @@ Page({
 
     var restaurants = app.globalData.restaurants
     let index = restaurants.findIndex(restaurant => restaurant.id.toString() === options.id);
-    
+
     // Update local data
-    this.setData(restaurants[index]);   
+    this.setData(restaurants[index]);
   },
 
   onReady() {
@@ -70,5 +70,5 @@ Page({
       url: '/pages/index/index'
     });
   },
- 
+
 })
